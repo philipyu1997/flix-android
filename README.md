@@ -20,10 +20,10 @@ Flix is a read-only movie browsing app - similar to Fandango and Rotten Tomatoes
 - [x] Views shall be responsive for both landscape/portrait mode.
    - [x] In portrait mode, the poster image, title, and movie overview shall be shown.
    - [x] In landscape mode, the rotated alternate layout shall use the backdrop image instead and show the title and movie overview to the right of it.
-- [ ] A nice default [placeholder graphic](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image shall be displayed during loading.
+- [x] A nice default [placeholder graphic](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image shall be displayed during loading.
 - [ ] For popular movies (i.e. a movie voted for more than 5 stars), the full backdrop image shall be displayed. Otherwise, a poster image, the movie title, and overview is listed. Use Heterogenous RecyclerViews and use different ViewHolder layout files for popular movies and less popular ones.
-- [X] Details of movie (ratings using RatingBar, popularity, and synopsis) in shall be in a separate activity.
-- [X] Video posts shall be allowed to be played in full-screen using the YouTubePlayerView.
+- [x] Details of movie (ratings using RatingBar, popularity, and synopsis) in shall be in a separate activity.
+- [x] Video posts shall be allowed to be played in full-screen using the YouTubePlayerView.
 - [ ] Trailers for popular movies shall be played automatically when the movie is selected.
   - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video shall be played immediately.
   - [ ] Less popular videos shall rely on the detailed page should show an image preview that can initiate playing a YouTube video.
