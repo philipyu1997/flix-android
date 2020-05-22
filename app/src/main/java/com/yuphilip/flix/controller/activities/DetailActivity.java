@@ -8,12 +8,12 @@ import android.widget.TextView;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.yuphilip.flix.R;
+import com.yuphilip.flix.model.Constant;
 import com.yuphilip.flix.model.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.yuphilip.flix.model.Secrets;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +23,7 @@ import okhttp3.Headers;
 
 public class DetailActivity extends YouTubeBaseActivity {
 
-    private static final String YOUTUBE_API_KEY = Secrets.API_KEY;
+    private static final String YOUTUBE_API_KEY = Constant.API_KEY;
     public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=" + YOUTUBE_API_KEY;
 
     TextView tvTitle;
@@ -41,7 +41,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView = findViewById(R.id.player);
 
-        Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
+        final Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
 
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
@@ -60,7 +60,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     }
                     String youtubeKey = results.getJSONObject(0).getString("key");
                     Log.d("DetailActivity", youtubeKey);
-                    initializeYoutube(youtubeKey);
+                    initializeYoutube(youtubeKey, movie.getRating());
                 } catch (JSONException e) {
                     Log.e("DetailActivity", "Failed to parse JSON.");
                     e.printStackTrace();
@@ -75,12 +75,21 @@ public class DetailActivity extends YouTubeBaseActivity {
         });
     }
 
-    private void initializeYoutube(final String youtubeKey) {
+    private void initializeYoutube(final String youtubeKey, final double rating) {
         youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                double ratingThreshold = Constant.RATING_THRESHOLD;
+
                 Log.d("DetailActivity", "onInitializationSuccess");
-                youTubePlayer.cueVideo(youtubeKey);
+
+                if (rating < ratingThreshold) {
+                    Log.d("YouTube", "Rating is below " + ratingThreshold + ". Display image preview.");
+                    youTubePlayer.cueVideo(youtubeKey);
+                } else {
+                    Log.d("YouTube", "Rating is above " + ratingThreshold + ". Play video.");
+                    youTubePlayer.loadVideo(youtubeKey);
+                }
             }
 
             @Override

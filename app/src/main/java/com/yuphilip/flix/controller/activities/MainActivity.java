@@ -1,18 +1,18 @@
 package com.yuphilip.flix.controller.activities;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.yuphilip.flix.R;
 import com.yuphilip.flix.controller.adapters.MovieAdapter;
+import com.yuphilip.flix.model.Constant;
 import com.yuphilip.flix.model.Movie;
-import com.yuphilip.flix.model.Secrets;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +25,7 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String API_KEY = Secrets.API_KEY;
+    private static final String API_KEY = Constant.API_KEY;
     public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API_KEY + "&language=en-US&page=1";
     public static final String TAG = "MainActivity";
     private List<Movie> movies;

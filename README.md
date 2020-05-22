@@ -24,10 +24,10 @@ Flix is a read-only movie browsing app - similar to Fandango and Rotten Tomatoes
 - [x] For popular movies (i.e. a movie voted for more than 5 stars), the full backdrop image shall be displayed. Otherwise, a poster image, the movie title, and overview is listed.
 - [x] Details of movie (ratings using RatingBar, popularity, and synopsis) in shall be in a separate activity.
 - [x] Video posts shall be allowed to be played in full-screen using the YouTubePlayerView.
-- [ ] Trailers for popular movies shall be played automatically when the movie is selected.
-  - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video shall be played immediately.
-  - [ ] Less popular videos shall rely on the detailed page should show an image preview that can initiate playing a YouTube video.
-- [ ] A play icon overlay to popular movies shall indicate that the movie can be played.
+- [x] Trailers for popular movies shall be played automatically when the movie is selected.
+  - [x] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video shall be played immediately.
+  - [x] Less popular videos shall rely on the detailed page should show an image preview that can initiate playing a YouTube video.
+- [x] A play icon overlay to popular movies shall indicate that the movie can be played.
 - [ ] The popular ButterKnife annotation library shall be applied, to reduce view boilerplate.
 - [ ] A rounded corners for the images shall be added, using the Glide transformations.
 
