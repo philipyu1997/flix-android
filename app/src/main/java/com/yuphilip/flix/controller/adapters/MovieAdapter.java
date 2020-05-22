@@ -1,9 +1,8 @@
-package com.example.flixster.adapters;
+package com.yuphilip.flix.controller.adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Parcel;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.flixster.DetailActivity;
-import com.example.flixster.R;
-import com.example.flixster.models.Movie;
+import com.yuphilip.flix.controller.activities.DetailActivity;
+import com.yuphilip.flix.R;
+import com.yuphilip.flix.model.Movie;
 
 import org.parceler.Parcels;
 

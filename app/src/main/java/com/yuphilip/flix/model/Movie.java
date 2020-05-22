@@ -1,6 +1,4 @@
-package com.example.flixster.models;
-
-import android.widget.RatingBar;
+package com.yuphilip.flix.model;
 
 import org.json.JSONArray;
 import org.json.JSONException;

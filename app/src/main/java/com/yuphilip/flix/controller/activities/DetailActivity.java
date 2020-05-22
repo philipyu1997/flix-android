@@ -1,6 +1,4 @@
-package com.example.flixster;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.yuphilip.flix.controller.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,11 +7,13 @@ import android.widget.TextView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-import com.example.flixster.models.Movie;
+import com.yuphilip.flix.R;
+import com.yuphilip.flix.model.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.yuphilip.flix.model.Secrets;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,8 +23,8 @@ import okhttp3.Headers;
 
 public class DetailActivity extends YouTubeBaseActivity {
 
-    private static final String YOUTUBE_API_KEY = "***REMOVED***";
-    public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=***REMOVED***";
+    private static final String YOUTUBE_API_KEY = Secrets.API_KEY;
+    public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=" + YOUTUBE_API_KEY;
 
     TextView tvTitle;
     TextView tvOverview;
@@ -69,7 +69,8 @@ public class DetailActivity extends YouTubeBaseActivity {
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-
+                Log.d("DetailActivity", "Could not fetch video...");
+                Log.d("YouTube", response);
             }
         });
     }
