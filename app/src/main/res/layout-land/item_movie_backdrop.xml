@@ -9,7 +9,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/tvPoster"
+            android:id="@+id/tvBackdrop"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -28,7 +28,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_toEndOf="@id/tvPoster"
+            android:layout_toEndOf="@id/tvBackdrop"
             android:textSize="24sp"
             tools:text="El Camino: A Breaking Bad Movie" />
 
@@ -41,7 +41,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:layout_toEndOf="@id/tvPoster"
+            android:layout_toEndOf="@id/tvBackdrop"
             tools:text="In the wake of his dramatic escape from captivity, Jesse Pinkman must come to terms with his past in order to forge some kind of future." />
 
     </RelativeLayout>

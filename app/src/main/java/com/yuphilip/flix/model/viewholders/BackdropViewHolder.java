@@ -2,6 +2,7 @@ package com.yuphilip.flix.model.viewholders;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -44,7 +45,11 @@ public class BackdropViewHolder extends RecyclerView.ViewHolder {
         tvOverview.setText(movie.getOverview());
         String imageUrl;
 
-        imageUrl = movie.getBackdropPath();
+        if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            imageUrl = movie.getPosterPath();
+        } else {
+            imageUrl = movie.getBackdropPath();
+        }
 
         int radius = 30; // corner radius, higher value = more rounded
 
