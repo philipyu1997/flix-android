@@ -5,15 +5,18 @@ import android.util.Log;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-import com.yuphilip.flix.R;
-import com.yuphilip.flix.model.Constant;
-import com.yuphilip.flix.model.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.yuphilip.flix.R;
+import com.yuphilip.flix.databinding.ActivityDetailBinding;
+import com.yuphilip.flix.model.Constant;
+import com.yuphilip.flix.model.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,22 +33,29 @@ public class DetailActivity extends YouTubeBaseActivity {
     TextView tvOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
+    private ActivityDetailBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
 
-        tvTitle = findViewById(R.id.tvTitle);
-        tvOverview = findViewById(R.id.tvOverview);
-        ratingBar = findViewById(R.id.ratingBar);
-        youTubePlayerView = findViewById(R.id.player);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
+
+        tvTitle = binding.tvTitle;
+        tvOverview = binding.tvOverview;
+        ratingBar = binding.ratingBar;
+        youTubePlayerView = binding.player;
 
         final Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
 
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float) movie.getRating());
+
+        playVideo(movie);
+    }
+
+    private void playVideo(final Movie movie) {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
@@ -73,6 +83,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                 Log.d("YouTube", response);
             }
         });
+
     }
 
     private void initializeYoutube(final String youtubeKey, final double rating) {
