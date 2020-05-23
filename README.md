@@ -4,8 +4,8 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [APIs Used](#APIs-Used)
-5. [Open-Source libraries used](#Open-Source-libraries-used)
+4. [APIs](#APIs)
+5. [Libraries](#Libraries)
 6. [Credits](#Credits)
 
 ## Overview
@@ -37,11 +37,11 @@ Here's a GIF of how the app works:
 
 <img src="https://user-images.githubusercontent.com/35745973/82721011-f4c2d900-9c6d-11ea-9695-29fa3eec4712.gif" width=250><br>
 
-## APIs Used
+## APIs
 
 - [The Movie Database API](https://developers.themoviedb.org/4/getting-started/authorization) - Provides movie, TV show or actor images and/or data in your application.
 
-## Open-source libraries used
+## Libraries
 
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing.
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Androids.
