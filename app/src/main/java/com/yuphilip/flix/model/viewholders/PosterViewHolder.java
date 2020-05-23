@@ -22,25 +22,29 @@ import org.parceler.Parcels;
 
 public class PosterViewHolder extends RecyclerView.ViewHolder {
 
+    //region Properties
     RelativeLayout container;
     TextView tvTitle;
     TextView tvOverview;
     ImageView tvPoster;
-    private final ItemMoviePosterBinding binding;
     Context context;
+    //endregion
 
     public PosterViewHolder(@NonNull View itemView, Context context) {
+
         super(itemView);
-        this.binding = ItemMoviePosterBinding.bind(itemView);
+        com.yuphilip.flix.databinding.ItemMoviePosterBinding binding = ItemMoviePosterBinding.bind(itemView);
 
         tvTitle = binding.tvTitle;
         tvOverview = binding.tvOverview;
         tvPoster = binding.tvPoster;
         container = binding.container;
         this.context = context;
+
     }
 
     public void bind(final Movie movie) {
+
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         String imageUrl;
@@ -57,7 +61,7 @@ public class PosterViewHolder extends RecyclerView.ViewHolder {
                 .load(imageUrl)
                 .placeholder(R.drawable.placeholder)
                 .error(R.drawable.error)
-                .transforms(new RoundedCorners(radius))
+                .transform(new RoundedCorners(radius))
                 .into(tvPoster);
 
         // 1. Register click listener on the whole row
@@ -69,5 +73,7 @@ public class PosterViewHolder extends RecyclerView.ViewHolder {
                 context.startActivity(i);
             }
         });
+
     }
+
 }

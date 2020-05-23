@@ -22,25 +22,29 @@ import org.parceler.Parcels;
 
 public class BackdropViewHolder extends RecyclerView.ViewHolder {
 
+    //region Properties
     RelativeLayout container;
     TextView tvTitle;
     TextView tvOverview;
     ImageView tvPoster;
-    private final ItemMovieBackdropBinding binding;
     Context context;
+    private final ItemMovieBackdropBinding binding;
+    //endregion
 
     public BackdropViewHolder(@NonNull View itemView, Context context) {
-        super(itemView);
-        this.binding = ItemMovieBackdropBinding.bind(itemView);
 
+        super(itemView);
+        binding = ItemMovieBackdropBinding.bind(itemView);
         tvTitle = binding.tvTitle;
         tvOverview = binding.tvOverview;
         tvPoster = binding.tvBackdrop;
         container = binding.container;
         this.context = context;
+
     }
 
     public void bind(final Movie movie) {
+
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         String imageUrl;
@@ -69,5 +73,7 @@ public class BackdropViewHolder extends RecyclerView.ViewHolder {
                 context.startActivity(i);
             }
         });
+
     }
+
 }

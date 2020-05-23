@@ -22,37 +22,40 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.parceler.Parcels;
 
+import java.util.Objects;
+
 import okhttp3.Headers;
 
 public class DetailActivity extends YouTubeBaseActivity {
 
-    private static final String YOUTUBE_API_KEY = Constant.API_KEY;
-    public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=" + YOUTUBE_API_KEY;
+    //region Properties
+    private static final String YOUTUBE_API_KEY = Constant.YOUTUBE_API_KEY;
+    private static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=" + Constant.API_KEY;
 
-    TextView tvTitle;
-    TextView tvOverview;
-    RatingBar ratingBar;
-    YouTubePlayerView youTubePlayerView;
+    private YouTubePlayerView youTubePlayerView;
     private ActivityDetailBinding binding;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
-        tvTitle = binding.tvTitle;
-        tvOverview = binding.tvOverview;
-        ratingBar = binding.ratingBar;
+        TextView tvTitle = binding.tvTitle;
+        TextView tvOverview = binding.tvOverview;
+        RatingBar ratingBar = binding.ratingBar;
         youTubePlayerView = binding.player;
 
         final Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
 
-        tvTitle.setText(movie.getTitle());
+        tvTitle.setText(Objects.requireNonNull(movie).getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float) movie.getRating());
 
         playVideo(movie);
+
     }
 
     private void playVideo(final Movie movie) {
@@ -88,6 +91,7 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     private void initializeYoutube(final String youtubeKey, final double rating) {
         youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 double ratingThreshold = Constant.RATING_THRESHOLD;
@@ -108,6 +112,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                 Log.d("DetailActivity", "onInitializationFailure");
             }
         });
+
     }
 
 }

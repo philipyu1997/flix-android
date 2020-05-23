@@ -12,7 +12,6 @@ import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.yuphilip.flix.R;
 import com.yuphilip.flix.controller.adapters.MovieAdapter;
-import com.yuphilip.flix.databinding.ActivityMainBinding;
 import com.yuphilip.flix.model.Constant;
 import com.yuphilip.flix.model.Movie;
 
@@ -27,18 +26,20 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "MainActivity";
+    //region Properties
+    private static final String TAG = "MainActivity";
     private static final String API_KEY = Constant.API_KEY;
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API_KEY + "&language=en-US&page=1";
-    private List<Movie> movies;
+    private static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API_KEY + "&language=en-US&page=1";
 
-    // Store the binding
-    private ActivityMainBinding binding;
+    private List<Movie> movies;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        // Store the binding
+        com.yuphilip.flix.databinding.ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         RecyclerView rvMovies = binding.rvMovies;
         movies = new ArrayList<>();
 
@@ -74,5 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onFailure");
             }
         });
+
     }
+
 }
