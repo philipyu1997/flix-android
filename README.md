@@ -1,19 +1,19 @@
-# Flix
+# 🍿 Flix
 
-## Table of Contents
-1. [Overview](#Overview)
-2. [Product Specs](#Product-Specs)
-3. [App Walkthrough](#App-Walkthrough)
-4. [APIs](#APIs)
-5. [Libraries](#Libraries)
-6. [Credits](#Credits)
+## 📋 Table of Contents
+1. [Overview](#-Overview)
+2. [Product Specs](#-Product-Specs)
+3. [App Walkthrough](#-App-Walkthrough)
+4. [APIs](#-APIs)
+5. [Libraries](#-Libraries)
+6. [Credits](#-Credits)
 
-## Overview
+## 👀 Overview
 ### Description
 
 Flix is a read-only movie browsing app - similar to Fandango and Rotten Tomatoes - that lets a user view and scroll through a list of movies.
 
-## Product Specs
+## 📕 Product Specs
 ### User Stories
 
 - [x] User shall be able to view a list of movies (title, poster image, and overview) currently playing in theaters from [The Movie Database API](https://developers.themoviedb.org/4/getting-started/authorization).
@@ -31,21 +31,21 @@ Flix is a read-only movie browsing app - similar to Fandango and Rotten Tomatoes
 - [x] The popular ButterKnife annotation library shall be applied, to reduce view boilerplate.
 - [x] A rounded corners for the images shall be added, using the Glide transformations.
 
-## App Walkthrough
+## 🎬 App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="https://raw.githubusercontent.com/py415/app-resources/master/android/android-flix.gif" width="250" />
+<img src="https://raw.githubusercontent.com/py415/app-resources/master/GIFs/android/android-flix.gif" width="250" />
 
-## APIs
+## 🔑 APIs
 
 - [The Movie Database API](https://developers.themoviedb.org/4/getting-started/authorization) - Provides movie, TV show or actor images and/or data in your application.
 
-## Libraries
+## 📚 Libraries
 
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing.
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Androids.
 
-## Credits
+## 💳 Credits
 
 >This is a companion project to CodePath's Professional Android Course, check out the full course at [www.codepath.org](https://codepath.org/).
